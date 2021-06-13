@@ -3,32 +3,38 @@ import { connect } from "react-redux";
 import QuestionPreview from "./QuestionPreview";
 
 class Dashboard extends Component {
-  state = { renderAnswered: false };
+  state = { renderAnswered: "unAnswered" };
 
   render() {
-    console.log(this.props);
-    // const { answered, unAnswered } = this.props;
     return (
       <div>
         <div className="dashboard">
           <div className="title">
             <h2
+              className={`${
+                this.state.renderAnswered === "unAnswered" && "render"
+              }`}
               onClick={() => {
-                this.setState({ renderAnswered: true });
+                this.setState({ renderAnswered: "unAnswered" });
               }}
             >
               Unanswered Questions
             </h2>
             <h2
+              className={`${
+                this.state.renderAnswered === "answered" && "render"
+              }`}
               onClick={() => {
-                this.setState({ renderAnswered: false });
+                this.setState({ renderAnswered: "answered" });
               }}
             >
               Answered Questions
             </h2>
           </div>
           <div className="polls">
-            <QuestionPreview id={"6ni6ok3ym7mf1p33lnez"} />
+            {this.props[this.state.renderAnswered].map((id) => (
+              <QuestionPreview key={id} id={id} />
+            ))}
           </div>
         </div>
       </div>

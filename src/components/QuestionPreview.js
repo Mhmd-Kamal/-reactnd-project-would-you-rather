@@ -1,22 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import picture from "../utils/avatar/user.png";
-
 class QuestionPreview extends Component {
   render() {
-    console.log(this.props);
-    const { question } = this.props;
+    const { author, avatar, text } = this.props;
+
     return (
       <div className="poll-preview">
-        <div className="poll-header">{`${question.author} asked:`}</div>
+        <div className="poll-header">{`${author} asked:`}</div>
         <div className="poll-content">
           <div className="avatar">
-            <img className="avatar-img" src={picture} alt="profile avatar" />
+            <img className="avatar-img" src={avatar} alt="profile avatar" />
           </div>
           <div className="poll-details">
             <h3>Would you rather:</h3>
-            <p>{question.optionOne.text}</p>
+            <p>{text}</p>
             <button className="btn btn-outline-primary btn-lg btn-block">
               View Poll
             </button>
@@ -27,7 +25,9 @@ class QuestionPreview extends Component {
   }
 }
 
-const mapStateToProps = ({ questions }, { id }) => ({
-  question: questions[id],
+const mapStateToProps = ({ questions, users }, { id }) => ({
+  author: users[questions[id].author].name,
+  avatar: users[questions[id].author].avatarURL,
+  text: "... " + questions[id].optionOne.text.slice(0, 10) + " ...",
 });
 export default connect(mapStateToProps)(QuestionPreview);

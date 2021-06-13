@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleReceiveData } from "../actions/shared";
+import LoadingBar from "react-redux-loading-bar";
+
 import Dashboard from "./Dashboard";
 import NavBar from "./NavBar";
 
@@ -11,16 +13,19 @@ class App extends Component {
     dispatch(handleReceiveData());
   }
   render() {
+    const { loading } = this.props;
     return (
       <div>
+        <LoadingBar />
         <div className="nav">
           <NavBar />
         </div>
-
-        <Dashboard />
+        {loading ? null : <Dashboard />}
       </div>
     );
   }
 }
-
-export default connect()(App);
+const mapStateToProps = ({ loadingBar, questions }) => ({
+  loading: loadingBar.default === 1 || loadingBar.default === undefined,
+});
+export default connect(mapStateToProps)(App);
