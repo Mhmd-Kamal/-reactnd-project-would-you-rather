@@ -17,9 +17,12 @@ class Poll extends Component {
     const handleSubmit = (e) => {
       e.preventDefault();
       const answer = { authedUser, qid, answer: this.state.answer };
-
-      dispatch(handleSaveAnswer(answer));
-      // route to question statistics page
+      if (this.state.answer === "") {
+        alert("Please choose an answer before submitting!");
+      } else {
+        dispatch(handleSaveAnswer(answer));
+        // route to question statistics page
+      }
     };
     return (
       // <div className="poll">

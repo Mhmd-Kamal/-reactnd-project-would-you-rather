@@ -7,6 +7,7 @@ import Dashboard from "./Dashboard";
 import NavBar from "./NavBar";
 
 import "./app.scss";
+import UnanswerdPoll from "./UnanswerdPoll";
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +22,7 @@ class App extends Component {
         <div className="nav">
           <NavBar />
         </div>
-        {loading ? null : <Poll id="loxhs1bqm25b708cmbf3g" />}
+        {loading ? null : <UnanswerdPoll id="vthrdm985a262al8qx3do" />}
       </div>
     );
   }
