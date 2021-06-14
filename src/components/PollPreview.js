@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class QuestionPreview extends Component {
+class PollPreview extends Component {
   render() {
     const { author, avatar, text } = this.props;
 
@@ -30,4 +30,4 @@ const mapStateToProps = ({ questions, users }, { id }) => ({
   avatar: users[questions[id].author].avatarURL,
   text: "... " + questions[id].optionOne.text.slice(0, 10) + " ...",
 });
-export default connect(mapStateToProps)(QuestionPreview);
+export default connect(mapStateToProps)(PollPreview);

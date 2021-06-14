@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import QuestionPreview from "./QuestionPreview";
+import PollPreview from "./PollPreview";
 
 class Dashboard extends Component {
   state = { renderAnswered: "unAnswered" };
@@ -33,7 +33,7 @@ class Dashboard extends Component {
           </div>
           <div className="polls">
             {this.props[this.state.renderAnswered].map((id) => (
-              <QuestionPreview key={id} id={id} />
+              <PollPreview key={id} id={id} />
             ))}
           </div>
         </div>
