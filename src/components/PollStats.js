@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ProgressBar } from "react-bootstrap";
-class Poll extends Component {
+class PollStats extends Component {
   render() {
     console.log(this.props);
     const {
@@ -81,4 +81,4 @@ const mapStateToProps = ({ questions, users, authedUser }, { id }) => ({
     ? "optionTwo"
     : null,
 });
-export default connect(mapStateToProps)(Poll);
+export default connect(mapStateToProps)(PollStats);

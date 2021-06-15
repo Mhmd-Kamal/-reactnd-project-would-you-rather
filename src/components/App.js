@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleReceiveData } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
+
 import Poll from "./Poll";
 import Dashboard from "./Dashboard";
 import NavBar from "./NavBar";
-
 import "./app.scss";
-import UnanswerdPoll from "./UnanswerdPoll";
+import PollStats from "./PollStats";
+import Billboard from "./Billboard";
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class App extends Component {
         <div className="nav">
           <NavBar />
         </div>
-        {loading ? null : <UnanswerdPoll id="vthrdm985a262al8qx3do" />}
+        {loading ? null : <Billboard />}
       </div>
     );
   }
