@@ -21,10 +21,8 @@ class App extends Component {
     const { loading } = this.props;
     return (
       <div>
+        <NavBar />
         <LoadingBar />
-        <div className="nav">
-          <NavBar />
-        </div>
         {loading ? null : <LogIn />}
       </div>
     );
