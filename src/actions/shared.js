@@ -8,12 +8,12 @@ import {
   _saveQuestionAnswer as saveQuestionAnswer,
 } from "../utils/_DATA";
 
-const AUTHED_ID = "tylermcginnis";
+// const AUTHED_ID = "tylermcginnis";
 
 export function handleReceiveData() {
   return (dispatch) => {
     dispatch(showLoading());
-    dispatch(setAuthedUser(AUTHED_ID));
+    // dispatch(setAuthedUser(AUTHED_ID));
     getQuestions()
       .then((questions) => {
         dispatch(receiveQuestions(questions));
