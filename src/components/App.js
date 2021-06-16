@@ -9,6 +9,7 @@ import NavBar from "./NavBar";
 import "./app.scss";
 import PollStats from "./PollStats";
 import Billboard from "./Billboard";
+import NewPoll from "./NewPoll";
 
 class App extends Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class App extends Component {
         <div className="nav">
           <NavBar />
         </div>
-        {loading ? null : <Billboard />}
+        {loading ? null : <NewPoll />}
       </div>
     );
   }
