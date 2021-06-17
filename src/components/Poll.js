@@ -71,9 +71,8 @@ class Poll extends Component {
   }
 }
 
-const mapStateToProps = ({ questions, users, authedUser }, { match }) => {
-  const qid = match.params.qid;
-  console.log(match);
+const mapStateToProps = ({ questions, users, authedUser }, { qid }) => {
+  // console.log(qid);
   return {
     authedUser,
     qid,

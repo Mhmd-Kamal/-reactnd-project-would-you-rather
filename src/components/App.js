@@ -12,6 +12,7 @@ import PollStats from "./PollStats";
 import Leaderboard from "./Leaderboard";
 import NewPoll from "./NewPoll";
 import LogIn from "./LogIn";
+import ViewPoll from "./ViewPoll";
 
 class App extends Component {
   componentDidMount() {
@@ -44,7 +45,7 @@ class App extends Component {
             <PrivateRoute path="/" exact component={Dashboard} />
             <PrivateRoute path="/add" component={NewPoll} />
             <PrivateRoute path="/leaderboard" component={Leaderboard} />
-            <PrivateRoute path="/questions/:qid" component={Poll} />
+            <PrivateRoute path="/questions/:qid" component={ViewPoll} />
           </div>
         )}
       </div>

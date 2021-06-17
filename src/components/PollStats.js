@@ -21,7 +21,11 @@ class PollStats extends Component {
         <div className="poll-header">{`${author} asked:`}</div>
         <div className="poll-content">
           <div className="avatar">
-            <img className="avatar-img" src={avatar} alt="profile avatar" />
+            <img
+              className="avatar-img"
+              src={"." + avatar}
+              alt="profile avatar"
+            />
           </div>
           <div className="poll-details">
             <h3>Results:</h3>
@@ -64,21 +68,24 @@ class PollStats extends Component {
   }
 }
 
-const mapStateToProps = ({ questions, users, authedUser }, { id }) => ({
-  authedUser,
-  qid: id,
-  author: users[questions[id].author].name,
-  avatar: users[questions[id].author].avatarURL,
-  optionOne: questions[id].optionOne.text,
-  optionOneCount: questions[id].optionOne.votes.length,
-  optionTwo: questions[id].optionTwo.text,
-  optionTwoCount: questions[id].optionTwo.votes.length,
-  totalCount:
-    questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length,
-  yourVote: questions[id].optionOne.votes.includes(authedUser)
-    ? "optionOne"
-    : questions[id].optionTwo.votes.includes(authedUser)
-    ? "optionTwo"
-    : null,
-});
+const mapStateToProps = ({ questions, users, authedUser }, { qid }) => {
+  return {
+    authedUser,
+    qid,
+    author: users[questions[qid].author].name,
+    avatar: users[questions[qid].author].avatarURL,
+    optionOne: questions[qid].optionOne.text,
+    optionOneCount: questions[qid].optionOne.votes.length,
+    optionTwo: questions[qid].optionTwo.text,
+    optionTwoCount: questions[qid].optionTwo.votes.length,
+    totalCount:
+      questions[qid].optionOne.votes.length +
+      questions[qid].optionTwo.votes.length,
+    yourVote: questions[qid].optionOne.votes.includes(authedUser)
+      ? "optionOne"
+      : questions[qid].optionTwo.votes.includes(authedUser)
+      ? "optionTwo"
+      : null,
+  };
+};
 export default connect(mapStateToProps)(PollStats);
