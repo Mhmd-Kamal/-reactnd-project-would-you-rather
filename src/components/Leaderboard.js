@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import UserCard from "./UserCard";
 
-class Billboard extends Component {
+class Leaderboard extends Component {
   render() {
     const { users } = this.props;
     return (
@@ -27,4 +27,4 @@ const mapStateToProps = ({ users }) => ({
   ),
 });
 
-export default connect(mapStateToProps)(Billboard);
+export default connect(mapStateToProps)(Leaderboard);

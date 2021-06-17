@@ -32,8 +32,8 @@ class Dashboard extends Component {
             </h2>
           </div>
           <div className="polls">
-            {this.props[this.state.renderAnswered].map((id) => (
-              <PollPreview key={id} id={id} />
+            {this.props[this.state.renderAnswered].map((qid) => (
+              <PollPreview key={qid} qid={qid} />
             ))}
           </div>
         </div>
@@ -56,8 +56,12 @@ const mapStateToProps = ({ users, questions, authedUser }) => {
   );
 
   return {
-    answered,
-    unAnswered,
+    answered: answered.sort(
+      (a, b) => questions[b].timestamp - questions[a].timestamp
+    ),
+    unAnswered: unAnswered.sort(
+      (a, b) => questions[b].timestamp - questions[a].timestamp
+    ),
   };
 };
 export default connect(mapStateToProps)(Dashboard);

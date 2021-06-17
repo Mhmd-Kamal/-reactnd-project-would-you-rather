@@ -1,6 +1,5 @@
 import { receiveQuestions, saveAnswer } from "./questions";
 import { receiveUsers, saveAnswerToUser } from "./users";
-import { setAuthedUser } from "./authedUser";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 import {
   _getQuestions as getQuestions,

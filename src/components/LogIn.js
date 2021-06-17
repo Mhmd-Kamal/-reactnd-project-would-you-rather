@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 import { setAuthedUser } from "../actions/authedUser";
+
 class LogIn extends Component {
   state = {
     authedUser: "",
+    isAuthenticated: false,
   };
 
   handleClick = (e) => {
@@ -15,10 +18,16 @@ class LogIn extends Component {
   handleSubmit = (e) => {
     const { dispatch } = this.props;
     dispatch(setAuthedUser(this.state.authedUser));
+    this.setState({ isAuthenticated: true });
     // redirect to home page
   };
   render() {
     const { users } = this.props;
+    const { isAuthenticated } = this.state;
+
+    if (isAuthenticated) {
+      return <Redirect to="/" />;
+    }
 
     return (
       <div className="login">

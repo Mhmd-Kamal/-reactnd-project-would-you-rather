@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { Link } from "react-router-dom";
 class PollPreview extends Component {
   render() {
-    const { author, avatar, text } = this.props;
+    const { author, avatar, text, qid } = this.props;
 
     return (
       <div className="poll-preview">
@@ -15,9 +15,9 @@ class PollPreview extends Component {
           <div className="poll-details">
             <h3>Would you rather:</h3>
             <p>{text}</p>
-            <button className="btn btn-outline-primary btn-lg btn-block">
-              View Poll
-            </button>
+            <Link className="link" to={`/questions/${qid}`}>
+              <button className="btn  btn-lg btn-block">View Poll</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -25,9 +25,10 @@ class PollPreview extends Component {
   }
 }
 
-const mapStateToProps = ({ questions, users }, { id }) => ({
-  author: users[questions[id].author].name,
-  avatar: users[questions[id].author].avatarURL,
-  text: "... " + questions[id].optionOne.text.slice(0, 10) + " ...",
+const mapStateToProps = ({ questions, users }, { qid }) => ({
+  qid,
+  author: users[questions[qid].author].name,
+  avatar: users[questions[qid].author].avatarURL,
+  text: "... " + questions[qid].optionOne.text.slice(0, 10) + " ...",
 });
 export default connect(mapStateToProps)(PollPreview);

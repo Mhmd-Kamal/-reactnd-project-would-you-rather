@@ -9,7 +9,6 @@ class Poll extends Component {
   render() {
     const { author, avatar, optionOne, optionTwo, authedUser, qid, dispatch } =
       this.props;
-
     const handleChange = (e) => {
       this.setState({ answer: e.target.value });
     };
@@ -24,13 +23,18 @@ class Poll extends Component {
         // route to question statistics page
       }
     };
+
     return (
       // <div className="poll">
       <div className="poll">
         <div className="poll-header">{`${author} asked:`}</div>
         <div className="poll-content">
           <div className="avatar">
-            <img className="avatar-img" src={avatar} alt="profile avatar" />
+            <img
+              className="avatar-img"
+              src={"." + avatar}
+              alt="profile avatar"
+            />
           </div>
           <div className="poll-details">
             <h3>Would you rather:</h3>
@@ -56,10 +60,7 @@ class Poll extends Component {
                 {optionTwo}
               </label>
             </form>
-            <button
-              onClick={handleSubmit}
-              className="btn btn-outline-primary btn-lg btn-block"
-            >
+            <button onClick={handleSubmit} className="btn btn-lg btn-block">
               Submit
             </button>
           </div>
@@ -70,12 +71,16 @@ class Poll extends Component {
   }
 }
 
-const mapStateToProps = ({ questions, users, authedUser }, { id }) => ({
-  authedUser,
-  qid: id,
-  author: users[questions[id].author].name,
-  avatar: users[questions[id].author].avatarURL,
-  optionOne: questions[id].optionOne.text,
-  optionTwo: questions[id].optionTwo.text,
-});
+const mapStateToProps = ({ questions, users, authedUser }, { match }) => {
+  const qid = match.params.qid;
+  console.log(match);
+  return {
+    authedUser,
+    qid,
+    author: users[questions[qid].author].name,
+    avatar: users[questions[qid].author].avatarURL,
+    optionOne: questions[qid].optionOne.text,
+    optionTwo: questions[qid].optionTwo.text,
+  };
+};
 export default connect(mapStateToProps)(Poll);

@@ -22,7 +22,7 @@ class UserCard extends Component {
             <span className="count">{answersCount}</span>
           </p>
           <p className="stats-text">
-            Answered questions
+            Created questions
             <span className="count">{questionsCount}</span>
           </p>
         </div>
