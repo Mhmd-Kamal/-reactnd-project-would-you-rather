@@ -52,7 +52,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ loadingBar, questions, authedUser }) => ({
+const mapStateToProps = ({ loadingBar, authedUser }) => ({
   loading: loadingBar.default === 1 || loadingBar.default === undefined,
   isAuthenticated: authedUser !== null,
 });

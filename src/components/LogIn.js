@@ -18,8 +18,9 @@ class LogIn extends Component {
   handleSubmit = (e) => {
     const { dispatch } = this.props;
     dispatch(setAuthedUser(this.state.authedUser));
-    this.setState({ isAuthenticated: true });
-    // redirect to home page
+    if (this.state.authedUser !== "") {
+      this.setState({ isAuthenticated: true });
+    }
   };
   render() {
     const { users } = this.props;

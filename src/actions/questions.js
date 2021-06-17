@@ -30,16 +30,18 @@ export function saveAnswer({ authedUser, qid, answer }) {
 
 export function handleSaveQuestion({ optionOneText, optionTwoText, author }) {
   return (dispatch) => {
-    dispatch(showLoading());
-    return _saveQuestion({ optionOneText, optionTwoText, author })
-      .then((question) => {
-        dispatch(saveQuestion(question));
-      })
-      .then(() => {
-        dispatch(hideLoading());
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    // dispatch(showLoading());
+    return (
+      _saveQuestion({ optionOneText, optionTwoText, author })
+        .then((question) => {
+          dispatch(saveQuestion(question));
+        })
+        // .then(() => {
+        //   dispatch(hideLoading());
+        // })
+        .catch((e) => {
+          console.log(e);
+        })
+    );
   };
 }
