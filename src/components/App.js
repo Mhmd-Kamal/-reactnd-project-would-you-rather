@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleReceiveData } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Dashboard from "./Dashboard";
 import NavBar from "./NavBar";

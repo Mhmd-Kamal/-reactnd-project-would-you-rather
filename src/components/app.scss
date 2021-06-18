@@ -587,3 +587,19 @@ body {
     }
   }
 }
+
+.error-page {
+  // background-color: #dbf6e9;
+  width: fit-content;
+  margin: auto;
+  border: 1px solid #cfdac8;
+  border-radius: 5px;
+  text-align: center;
+
+  img {
+    width: 50%;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
