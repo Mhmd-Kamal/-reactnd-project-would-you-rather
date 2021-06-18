@@ -30,7 +30,8 @@ class NewPoll extends Component {
   render() {
     console.log(this.state);
     if (this.state.toHome) {
-      return <Redirect to="/" />;
+      this.props.history.goBack();
+      // return <Redirect to="/" />;
     }
     return (
       <div className="new-poll">

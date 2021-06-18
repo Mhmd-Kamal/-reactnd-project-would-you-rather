@@ -12,7 +12,7 @@ class NavBar extends Component {
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-light">
         <Link className="navbar-brand" to="/">
-          <img src="./avatar/compare.png" alt="brand-img" />
+          <img src="../avatar/compare.png" alt="brand-img" />
         </Link>
         <button
           className="navbar-toggler collapsed"
@@ -49,7 +49,7 @@ class NavBar extends Component {
                 <p>Hello, {authedUser.name}</p>
                 <img
                   className="avatar-img"
-                  src={authedUser.avatarURL}
+                  src={"." + authedUser.avatarURL}
                   alt="avatar img"
                 />
               </div>

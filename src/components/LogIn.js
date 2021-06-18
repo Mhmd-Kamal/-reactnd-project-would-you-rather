@@ -23,17 +23,19 @@ class LogIn extends Component {
     }
   };
   render() {
+    console.log(this.props);
     const { users } = this.props;
+    const requestedURL = this.props.location.pathname;
     const { isAuthenticated } = this.state;
 
     if (isAuthenticated) {
-      return <Redirect to="/" />;
+      return <Redirect to={requestedURL} />;
     }
 
     return (
       <div className="login">
         <div className="title">
-          <img src="./avatar/compare.png" alt="logo" />
+          <img src="../avatar/compare.png" alt="logo" />
           <h2>Welcome to the Would You Rather App!</h2>
           <p>Please sign in to continue</p>
         </div>
@@ -51,7 +53,7 @@ class LogIn extends Component {
                 <img
                   id={id}
                   className="avatar-img"
-                  src={avatarURL}
+                  src={"." + avatarURL}
                   alt="profile avatar"
                   onClick={this.handleClick}
                 />
