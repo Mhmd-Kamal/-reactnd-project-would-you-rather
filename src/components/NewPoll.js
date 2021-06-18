@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { Redirect } from "react-router-dom";
 import { handleSaveQuestion } from "../actions/questions";
 
 class NewPoll extends Component {
@@ -29,8 +29,8 @@ class NewPoll extends Component {
   render() {
     console.log(this.state);
     if (this.state.toHome) {
-      this.props.history.goBack();
-      // return <Redirect to="/" />;
+      // this.props.history.goBack();
+      return <Redirect to="/" />;
     }
     return (
       <div className="new-poll">
