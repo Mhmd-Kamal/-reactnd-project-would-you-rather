@@ -8,10 +8,10 @@ a user play the “Would You Rather?” game. The game goes like this: A user is
 
 ## Start App:
 
-1- Clone the repo.
-2- cd to application home directory.
-3- run npm install
-4- run npm start
+    1- Clone the repo.
+    2- cd to application home directory.
+    3- run npm install
+    4- run npm start
 
 ## Technologies used:
 
